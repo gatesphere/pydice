@@ -179,6 +179,12 @@ def run_request(req_info):
     results['success'] = True
     results['message'] = message
     ## send email
+    c = req_info['campaign']
+    subject = "[***DICE SERVER***] %s: Roll from %s (%s)" % (c, req_info['playername'], req_info['comment'])
+    email = campaignlist[c]
+    message = "Hello list.  Incoming die roll...\n\n\n" + message
+    message += "\n\nDice Server signing off."
+    send_email(email, subject, message)
     
   else: # incorrect passcode
     results['success'] = False
