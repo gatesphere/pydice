@@ -54,9 +54,9 @@ def print_page(results):
     <h1>Dice</h1>
 """
 
-print_form()
+  print_form()
 
-print """
+  print """
   </center>
 </body>
 </html>
