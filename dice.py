@@ -115,19 +115,29 @@ def parse_dicestring(diestring):
   for die in dice:
     if die.find('d') != -1:
       num = die[0:die.index('d')]
-      num = (1 if num == '' else int(num))
+      try:
+        num = int(num)
+      except:
+        num = 1
       s = die[die.index('d')+1:]
       if 'f' in s:
         for i in range(num):
           values.append(random.choice(fudgedice))
       else:
-        sides = int(s)
+        try:
+          sides = int(s)
+        except:
+          sides = 6
         for i in range(num):
           values.append(random.randrange(1, sides+1))
       if 'e' in s:
         essence = random.choice(fudgedice)
     else:
-      values.append(int(die))
+      try:
+        die = int(die)
+      except:
+        die = 0
+      values.append(die)
   return (values, essence)
 #@+node:peckj.20130627092551.2220: ** cgi
 #@+node:peckj.20130627092551.2215: *3* grab_request_info
