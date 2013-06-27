@@ -9,6 +9,7 @@
 import cgi
 import random
 import smtplib
+import time
 
 ## enable traceback on exceptions
 import cgitb; cgitb.enable()
@@ -170,6 +171,7 @@ def run_request(req_info):
     message = "<pre>Roll requested by: %s\n" % req_info['playername']
     message += "For campaign: %s\n" % req_info['campaign']
     message += "Roll comment: %s\n" % req_info['comment']
+    message += "Roll timestamp: %s\n" % time.strftime("%Y-%m-%d %H:%M:%S (EST)")
     message += "Results for roll %s:\n%s\n(total %s)" % (req_info['rolltype'], dice[0], sum(dice[0]))
     if dice[1]:
       message += " Essence die: %s" % dice[1]
