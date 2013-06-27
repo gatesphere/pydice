@@ -53,7 +53,7 @@ def print_page(results):
 """
   if results['success']:
     print_results(results)
-  else
+  else:
     print_error(results)
     print_form()
 
