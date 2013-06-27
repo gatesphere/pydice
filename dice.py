@@ -51,10 +51,8 @@ def print_page(results):
   <center>
     <h1>Dice</h1>
 """
-  if results['success']:
-    print_results(results)
-  else:
-    print_error(results)
+  print_message(results)
+  if not results['success']:
     print_form()
 
   print """
@@ -102,12 +100,9 @@ def print_form():
     </table>
     </form>
 """
-#@+node:peckj.20130627092551.3121: *3* print_results
-def print_results(results):
-  print results
-#@+node:peckj.20130627092551.3122: *3* print_error
-def print_error(results):
-  print results
+#@+node:peckj.20130627092551.3121: *3* print_message
+def print_message(results):
+  print results['message']
 #@+node:peckj.20130627092551.2223: ** dice
 #@+node:peckj.20130627092551.2224: *3* parse_dicestring
 def parse_dicestring(diestring):
@@ -156,8 +151,8 @@ def run_request(req_info):
   for f in req_info:
     if req_info[f] is None:
       results['success'] = False
-      results['message'] = "Invalid form.  Please try again."
-      break
+      results['message'] = "Please fill in <b>all</b> fields."
+      return results
   
   if results['success'] and req_info['passcode'] == passcode:
     ## roll dice
@@ -171,7 +166,7 @@ def run_request(req_info):
     
   else: # incorrect passcode
     results['success'] = False
-    results['message'] = "Invalid passcode.  Try again."
+    results['message'] = "Invalid passcode.  Please try again."
   
   ## return results to pass to print_page (handled by main)
   return results
