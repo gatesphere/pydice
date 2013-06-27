@@ -161,7 +161,7 @@ def run_request(req_info):
   if results['success']:
     ## roll dice
     dice = parse_dicestring(req_info['rolltype'])
-    message = "Results for roll %s: %s (total %s)" % (req_info['dicestring'], dice[0], sum(dice[0]))
+    message = "Results for roll %s: %s (total %s)" % (req_info['rolltype'], dice[0], sum(dice[0]))
     if dice[1]:
       message += " Essence die: %s" % dice[1]
     results['success'] = True
