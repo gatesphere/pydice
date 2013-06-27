@@ -11,9 +11,16 @@
 <find_panel_settings/>
 <vnodes>
 <v t="peckj.20130627092551.2208"><vh>@file README.md</vh></v>
-<v t="peckj.20130627092551.2209" a="E"
+<v t="peckj.20130627092551.2209"
 expanded="peckj.20130627092551.2219,peckj.20130627092551.2223,peckj.20130627092551.2220,peckj.20130627092551.2221,"><vh>@file dice.py</vh></v>
+<v t="peckj.20130627092551.3123" a="E"><vh>Bugs</vh>
+<v t="peckj.20130627092551.3124"><vh>&lt;pre&gt; tags in emails</vh></v>
+<v t="peckj.20130627092551.3125"><vh>Essence die missing sometimes</vh></v>
+</v>
 </vnodes>
 <tnodes>
+<t tx="peckj.20130627092551.3123"></t>
+<t tx="peckj.20130627092551.3124"></t>
+<t tx="peckj.20130627092551.3125"></t>
 </tnodes>
 </leo_file>
