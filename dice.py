@@ -17,8 +17,8 @@ cgitb.enable()
 
 ## campaigns and lists
 campaignlist = {
-  'Campaign 1', 'test1@example.com',
-  'Campaign 2', 'test2@example.com'
+  'Campaign 1': 'test1@example.com',
+  'Campaign 2': 'test2@example.com'
 }
 
 ## passcode (required to actually use it)
@@ -26,13 +26,11 @@ passcode = 'somepasscode'
 
 ## email settings
 emailinfo = {
-  'user' = 'user@gmail.com',
-  'password' = 'password',
-  'server' = 'smtp.gmail.com',
-  'port' = 587
+  'user': 'user@gmail.com',
+  'password': 'password',
+  'server': 'smtp.gmail.com',
+  'port': 587
 }
-
-## valid roll types
 #@-<< declarations >>
 
 #@+others
