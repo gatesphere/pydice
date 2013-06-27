@@ -121,6 +121,8 @@ def parse_dicestring(diestring):
       except:
         num = 1
       s = die[die.index('d')+1:]
+      if 'e' in s:
+        essence = random.choice(fudgedice)
       if 'f' in s:
         for i in range(num):
           values.append(random.choice(fudgedice))
@@ -131,8 +133,6 @@ def parse_dicestring(diestring):
           sides = 6
         for i in range(num):
           values.append(random.randrange(1, sides+1))
-      if 'e' in s:
-        essence = random.choice(fudgedice)
     else:
       try:
         die = int(die)
