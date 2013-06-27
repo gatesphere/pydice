@@ -152,8 +152,8 @@ def run_request(req_info):
   results = {'success': True}
   
   ## validate info - if any field is blank, error out
-  for f,x in req_info:
-    if x is None:
+  for f in req_info:
+    if req_info[f] is None:
       results['success'] = False
       results['message'] = "Invalid form.  Please try again."
       break
