@@ -51,8 +51,11 @@ def print_page(results):
   <center>
     <h1>Dice</h1>
 """
-  print results
-  print_form()
+  if results['success']:
+    print_results(results)
+  else
+    print_error(results)
+    print_form()
 
   print """
   </center>
@@ -100,8 +103,11 @@ def print_form():
     </form>
 """
 #@+node:peckj.20130627092551.3121: *3* print_results
-def print_results():
-  pass
+def print_results(results):
+  print results
+#@+node:peckj.20130627092551.3122: *3* print_error
+def print_error(results):
+  print results
 #@+node:peckj.20130627092551.2223: ** dice
 #@+node:peckj.20130627092551.2224: *3* parse_dicestring
 def parse_dicestring(diestring):
@@ -143,15 +149,27 @@ def grab_request_info():
   return req_info
 #@+node:peckj.20130627092551.2216: *3* run_request
 def run_request(req_info):
+  results = {'success': True}
+  
   ## validate info - if any field is blank, error out
+  for f,x in req_info:
+    if x is None:
+      results['success'] = False
+      results['message'] = "Invalid form.  Please try again."
+      break
   
-  
-  ## roll dice
-  
-  ## send email
+  if results['success']:
+    ## roll dice
+    dice = parse_dicestring(req_info['rolltype'])
+    message = "Results for roll %s: %s (total %s)" % (req_info['dicestring'], dice[0], sum(dice[0]))
+    if dice[1]:
+      message += " Essence die: %s" % dice[1]
+    results['success'] = True
+    results['message'] = message
+    ## send email
   
   ## return results to pass to print_page (handled by main)
-  return req_info
+  return results
   pass
 #@+node:peckj.20130627092551.2221: ** email
 #@+node:peckj.20130627092551.2218: *3* send_email
