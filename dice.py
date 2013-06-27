@@ -62,7 +62,7 @@ def print_page(results):
 """
 
   # construct the campaign selection box here
-  for (c,x) in campaignlist:
+  for c in campaignlist:
     print "<option value='c'>c</option>"
 
   print """
