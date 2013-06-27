@@ -11,7 +11,8 @@
 <find_panel_settings/>
 <vnodes>
 <v t="peckj.20130627092551.2208"><vh>@file README.md</vh></v>
-<v t="peckj.20130627092551.2209" a="E"><vh>@file dice.py</vh></v>
+<v t="peckj.20130627092551.2209" a="E"
+expanded="peckj.20130627092551.2219,"><vh>@file dice.py</vh></v>
 </vnodes>
 <tnodes>
 </tnodes>
