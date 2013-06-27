@@ -149,6 +149,7 @@ def grab_request_info():
   return req_info
 #@+node:peckj.20130627092551.2216: *3* run_request
 def run_request(req_info):
+  global passcode
   results = {'success': True}
   
   ## validate info - if any field is blank, error out
@@ -158,7 +159,7 @@ def run_request(req_info):
       results['message'] = "Invalid form.  Please try again."
       break
   
-  if results['success']:
+  if results['success'] and req_info['passcode'] == passcode:
     ## roll dice
     dice = parse_dicestring(req_info['rolltype'])
     message = "Results for roll %s: %s (total %s)" % (req_info['rolltype'], dice[0], sum(dice[0]))
@@ -167,10 +168,13 @@ def run_request(req_info):
     results['success'] = True
     results['message'] = message
     ## send email
+    
+  else: # incorrect passcode
+    results['success'] = False
+    results['message'] = "Invalid passcode.  Try again."
   
   ## return results to pass to print_page (handled by main)
   return results
-  pass
 #@+node:peckj.20130627092551.2221: ** email
 #@+node:peckj.20130627092551.2218: *3* send_email
 def send_email(to, subject, message):
