@@ -18,17 +18,17 @@ import cgitb; cgitb.enable()
 #@+node:peckj.20130627092551.2211: ** << declarations >>
 ## campaigns and lists
 campaignlist = {
-  'Campaign 1': 'test1@example.com',
-  'Campaign 2': 'test2@example.com'
+  'games': 'games@suspended-chord.info',
+  'gatesphere': 'gatesphere@gmail.com'
 }
 
 ## passcode (required to actually use it)
-passcode = 'somepasscode'
+passcode = 'mintyfresh'
 
 ## email settings
 emailinfo = {
-  'user': 'user@gmail.com',
-  'password': 'password',
+  'user': 'dice@suspended-chord.info',
+  'password': 'rollthembones',
   'server': 'smtp.gmail.com',
   'port': 587
 }
