@@ -7,13 +7,15 @@
 #@+<< imports >>
 #@+node:peckj.20130627092551.2210: ** << imports >>
 import cgi
-import cgitb
+import random
 import smtplib
+
+## enable traceback on exceptions
+import cgitb; cgitb.enable()
 #@-<< imports >>
 #@+<< declarations >>
 #@+node:peckj.20130627092551.2211: ** << declarations >>
-## enable traceback on exceptions
-cgitb.enable()
+
 
 ## campaigns and lists
 campaignlist = {
@@ -50,7 +52,20 @@ def print_page(results):
 <body>
   <center>
     <h1>Dice</h1>
-    <form method='post' action='dice.py'>
+"""
+
+print_form()
+
+print """
+  </center>
+</body>
+</html>
+"""
+  
+#@+node:peckj.20130627092551.2222: *3* print_form
+def print_form():
+  print """
+  <form method='post' action='dice.py'>
     <table>
       <tr>
         <td>Passcode:</td>
@@ -85,11 +100,36 @@ def print_page(results):
       </tr>
     </table>
     </form>
-  </center>
-</body>
-</html>
 """
-  
+#@+node:peckj.20130627092551.3121: *3* print_results
+def print_results():
+  pass
+#@+node:peckj.20130627092551.2223: ** dice
+#@+node:peckj.20130627092551.2224: *3* parse_dicestring
+def parse_dicestring(diestring):
+  values = []
+  fudgedice = [-1, 0, 1]
+  essence = False
+  diestring2 = diestring.replace("-", " -")
+  diestring2 = diestring2.replace("+", " ")
+  dice = diestring2.lower().split()
+  for die in dice:
+    if die.find('d') != -1:
+      num = die[0:die.index('d')]
+      num = (1 if num == '' else int(num))
+      s = die[die.index('d')+1:]
+      if 'f' in s:
+        for i in range(num):
+          values.append(random.choice(fudgedice))
+      else:
+        sides = int(s)
+        for i in range(num):
+          values.append(random.randrange(1, sides+1))
+      if 'e' in s:
+        essence = random.choice(fudgedice)
+    else:
+      values.append(int(die))
+  return (values, essence)
 #@+node:peckj.20130627092551.2220: ** cgi
 #@+node:peckj.20130627092551.2215: *3* grab_request_info
 def grab_request_info():
