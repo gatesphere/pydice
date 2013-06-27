@@ -15,8 +15,6 @@ import cgitb; cgitb.enable()
 #@-<< imports >>
 #@+<< declarations >>
 #@+node:peckj.20130627092551.2211: ** << declarations >>
-
-
 ## campaigns and lists
 campaignlist = {
   'Campaign 1': 'test1@example.com',
@@ -53,7 +51,7 @@ def print_page(results):
   <center>
     <h1>Dice</h1>
 """
-
+  print results
   print_form()
 
   print """
@@ -73,7 +71,7 @@ def print_form():
       </tr>
       <tr>
         <td>Campaign:</td>
-        <td><select>
+        <td><select name='campaign'>
 """
 
   # construct the campaign selection box here
@@ -133,9 +131,27 @@ def parse_dicestring(diestring):
 #@+node:peckj.20130627092551.2220: ** cgi
 #@+node:peckj.20130627092551.2215: *3* grab_request_info
 def grab_request_info():
-  pass
+  req_info = {}
+  form = cgi.FieldStorage()
+  
+  req_info['passcode']   = form.getvalue('passcode')
+  req_info['campaign']   = form.getvalue('campaign')
+  req_info['rolltype']   = form.getvalue('rolltype')
+  req_info['playername'] = form.getvalue('playername')
+  req_info['comment']    = form.getvalue('comment')
+  
+  return req_info
 #@+node:peckj.20130627092551.2216: *3* run_request
 def run_request(req_info):
+  ## validate info - if any field is blank, error out
+  
+  
+  ## roll dice
+  
+  ## send email
+  
+  ## return results to pass to print_page (handled by main)
+  return req_info
   pass
 #@+node:peckj.20130627092551.2221: ** email
 #@+node:peckj.20130627092551.2218: *3* send_email
@@ -161,7 +177,7 @@ def main():
   results = run_request(req_info)
   print_header()
   print_page(results)
+#@-others
 
 main()
-#@-others
 #@-leo
