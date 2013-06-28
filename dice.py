@@ -47,7 +47,8 @@ def print_page(results):
 <html>
 <head>
   <title>Dice!</title>
-  <script language="javascript/text">
+  <script language="javascript">
+    alert('ooga');
     function populate(text)
     {
       alert(text);
