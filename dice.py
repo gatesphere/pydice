@@ -48,17 +48,12 @@ def print_page(results):
 <head>
   <title>Dice!</title>
   <script language="javascript">
-    alert('ooga');
-    function populate(text)
-    {
-      alert(text);
+    function populate(text) {
+      document.getElementById('rolltype').text = text;
     }
   </script>
 </head>
 <body>
-  <script>
-  alert('boo!');
-  </script>
   <center>
     <h1>Dice</h1>
 """
