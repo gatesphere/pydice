@@ -132,7 +132,7 @@ def parse_dicestring(diestring):
   print "  diestring = [%s]" % diestring
   values = []
   fudgedice = [-1, 0, 1]
-  essence = False
+  essence = None
   print "  beginning manipulations..."
   diestring2 = diestring.lower()
   print "    diestring2 = [%s]" % diestring2
@@ -203,7 +203,7 @@ def run_request(req_info):
     message += "Roll comment: %s\n" % req_info['comment']
     message += "Roll timestamp: %s\n" % time.strftime("%Y-%m-%d %H:%M:%S (EST)")
     message += "Results for roll %s:\n%s\n(total %s)" % (req_info['rolltype'], dice[0], sum(dice[0]))
-    if dice[1]:
+    if dice[1] is not None:
       message += "\nEssence die: %s" % dice[1]
     results['success'] = True
     results['message'] = "<pre>" + message + "</pre>"
