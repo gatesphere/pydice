@@ -48,7 +48,9 @@ def print_page(results):
 <head>
   <title>Dice!</title>
   <script language="javascript/text">
+    alert('hi!');
     function populate(text) {document.getElementById('rolltype').value = text;}
+    alert('bye!');
   </script>
 </head>
 <body>
