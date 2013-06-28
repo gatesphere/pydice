@@ -47,6 +47,12 @@ def print_page(results):
 <html>
 <head>
   <title>Dice!</title>
+  <script language="javascript/text">
+    function populate(text)
+    {
+      alert(text);
+    }
+  </script>
 </head>
 <body>
   <center>
@@ -58,12 +64,6 @@ def print_page(results):
 
   print """
   </center>
-  <script language="javascript/text">
-    function populate(text)
-    {
-      alert(text);
-    }
-  </script>
 </body>
 </html>
 """
