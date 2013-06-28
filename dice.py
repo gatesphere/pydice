@@ -48,25 +48,9 @@ def print_page(results):
 <head>
   <title>Dice!</title>
   <script language="javascript/text">
-    function init() {
-      document.getElementById('4dFE').onclick = copyDetails('4dFE', 'rolltype');
-      document.getElementById('4dF').onclick = copyDetails('4dF', 'rolltype');
-      document.getElementById('d4').onclick = copyDetails('d4', 'rolltype');
-      document.getElementById('d6').onclick = copyDetails('d6', 'rolltype');
-      document.getElementById('2d6').onclick = copyDetails('2d6', 'rolltype');
-      document.getElementById('3d6').onclick = copyDetails('3d6', 'rolltype');
-      document.getElementById('d8').onclick = copyDetails('d8', 'rolltype');
-      document.getElementById('d10').onclick = copyDetails('d10', 'rolltype');
-      document.getElementById('d12').onclick = copyDetails('d12', 'rolltype');
-      document.getElementById('d20').onclick = copyDetails('d20', 'rolltype');
-      document.getElementById('d100').onclick = copyDetails('d100', 'rolltype');
+    function populate(text) {
+      document.getElementById('rolltype').value = text;
     }
-    
-    function copyDetails(text, field) {
-      document.getElementById(field).value = text;
-    }
-    
-    window.onload = init;
   </script>
 </head>
 <body>
@@ -110,17 +94,17 @@ def print_form():
       </tr>
       <tr>
         <td></td>
-        <td><a href="#" id="4dFE">4dF + Essence</a> | 
-            <a href="#" id="4dF">4dF</a> | 
-            <a href="#" id="d4">d4</a> | 
-            <a href="#" id="d6">d6</a> |
-            <a href="#" id="2d6">2d6</a> |  
-            <a href="#" id="3d6">3d6</a> | 
-            <a href="#" id="d8">d8</a> | 
-            <a href="#" id="d10">d10</a> | 
-            <a href="#" id="d12">d12</a> | 
-            <a href="#" id="d20">d20</a> | 
-            <a href="#" id="d100">d100</a></td>
+        <td><a href="#" id="4dFE" onclick="populate('4dFE')">4dF + Essence</a> | 
+            <a href="#" id="4dF" onclick="populate('4dF')">4dF</a> | 
+            <a href="#" id="d4" onclick="populate('d4')">d4</a> | 
+            <a href="#" id="d6" onclick="populate('d6')">d6</a> |
+            <a href="#" id="2d6" onclick="populate('2d6')">2d6</a> |  
+            <a href="#" id="3d6" onclick="populate('3d6')">3d6</a> | 
+            <a href="#" id="d8" onclick="populate('d8')">d8</a> | 
+            <a href="#" id="d10" onclick="populate('d10')">d10</a> | 
+            <a href="#" id="d12" onclick="populate('d12')">d12</a> | 
+            <a href="#" id="d20" onclick="populate('d20')">d20</a> | 
+            <a href="#" id="d100" onclick="populate('d100')">d100</a></td>
       </tr>
       <tr>
         <td>Your name:</td>
