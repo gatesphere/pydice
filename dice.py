@@ -106,7 +106,7 @@ def print_form():
       </tr>
       <tr>
         <td>Roll type:</td>
-        <td><input type='text' name='rolltype'></td>
+        <td><input type='text' name='rolltype' id='rolltype'></td>
       </tr>
       <tr>
         <td></td>
