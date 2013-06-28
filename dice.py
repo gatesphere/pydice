@@ -110,7 +110,7 @@ def print_form():
         <td><input type='text' name='rolltype' id='rolltype'></td>
       </tr>
       <tr>
-        <td></td>
+        <td>(common roll types, click to fill in)</td>
         <td><a href="#" id="4dFE" onclick="populate('4dFE')">4dF + Essence</a> | 
             <a href="#" id="4dF" onclick="populate('4dF')">4dF</a> | 
             <a href="#" id="d4" onclick="populate('d4')">d4</a> | 
