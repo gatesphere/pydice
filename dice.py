@@ -59,7 +59,10 @@ def print_page(results):
   print """
   </center>
   <script language="javascript/text">
-    function populate(text) {document.getElementById('rolltype').value = text;}
+    function populate(text)
+    {
+      alert(text);
+    }
   </script>
 </body>
 </html>
