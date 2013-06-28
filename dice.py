@@ -47,6 +47,27 @@ def print_page(results):
 <html>
 <head>
   <title>Dice!</title>
+  <script language="javascript/text">
+    function init() {
+      document.getElementById('4dFE').onclick = copyDetails('4dFE', 'rolltype');
+      document.getElementById('4dF').onclick = copyDetails('4dF', 'rolltype');
+      document.getElementById('d4').onclick = copyDetails('d4', 'rolltype');
+      document.getElementById('d6').onclick = copyDetails('d6', 'rolltype');
+      document.getElementById('2d6').onclick = copyDetails('2d6', 'rolltype');
+      document.getElementById('3d6').onclick = copyDetails('3d6', 'rolltype');
+      document.getElementById('d8').onclick = copyDetails('d8', 'rolltype');
+      document.getElementById('d10').onclick = copyDetails('d10', 'rolltype');
+      document.getElementById('d12').onclick = copyDetails('d12', 'rolltype');
+      document.getElementById('d20').onclick = copyDetails('d20', 'rolltype');
+      document.getElementById('d100').onclick = copyDetails('d100', 'rolltype');
+    }
+    
+    function copyDetails(text, field) {
+      document.getElementById(field).value = text;
+    }
+    
+    window.onload = init;
+  </script>
 </head>
 <body>
   <center>
@@ -86,10 +107,25 @@ def print_form():
       <tr>
         <td>Roll type:</td>
         <td><input type='text' name='rolltype'></td>
+      </tr>
       <tr>
+        <td></td>
+        <td><a href="#" id="4dFE">4dF + Essence</a> | 
+            <a href="#" id="4dF">4dF</a> | 
+            <a href="#" id="d4">d4</a> | 
+            <a href="#" id="d6">d6</a> |
+            <a href="#" id="2d6">2d6</a> |  
+            <a href="#" id="3d6">3d6</a> | 
+            <a href="#" id="d8">d8</a> | 
+            <a href="#" id="d10">d10</a> | 
+            <a href="#" id="d12">d12</a> | 
+            <a href="#" id="d20">d20</a> | 
+            <a href="#" id="d100">d100</a></td>
+      </tr>
       <tr>
         <td>Your name:</td>
         <td><input type='text' name='playername'></td>
+      </tr>
       <tr>
         <td>Comment: </td>
         <td><input type='text' name='comment'></td>
@@ -174,7 +210,7 @@ def run_request(req_info):
     message += "Roll timestamp: %s\n" % time.strftime("%Y-%m-%d %H:%M:%S (EST)")
     message += "Results for roll %s:\n%s\n(total %s)" % (req_info['rolltype'], dice[0], sum(dice[0]))
     if dice[1]:
-      message += " Essence die: %s" % dice[1]
+      message += "\nEssence die: %s" % dice[1]
     results['success'] = True
     results['message'] = "<pre>" + message + "</pre>"
     ## send email
