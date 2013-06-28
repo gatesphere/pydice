@@ -18,8 +18,8 @@ import cgitb; cgitb.enable()
 #@+node:peckj.20130627092551.2211: ** << declarations >>
 ## campaigns and lists
 campaignlist = {
-  'games': 'games@suspended-chord.info',
-  'gatesphere': 'gatesphere@gmail.com'
+  'Campaign Name': 'gatesphere@gmail.com',
+  'Campaign Name (GM Only)': 'gatesphere@gmail.com'
 }
 
 ## passcode (required to actually use it)
@@ -35,6 +35,17 @@ emailinfo = {
 
 ## server name
 servername = "PBEM Dice Server"
+
+## footer text
+footertext = """
+<p>Use of this service requires the passcode given to you by the server administrator.</p>
+<p>Please fill out <b>all</b> form fields.  The Campaign dropdown box chooses which 
+list or GM the results will be emailed to.  Please only roll once - there is a record of your
+roll.</p>
+<h3>Do NOT refresh after you recieve your results.  That will resubmit your roll.  Instead,
+please return to the <a href="/">PBEM Dice Server home page</a>.</h3>
+<p><a href="http://pbemwiki.suspended-chord.info/">PBEM Wiki</a>
+"""
 #@-<< declarations >>
 
 #@+others
@@ -47,6 +58,7 @@ def print_header():
 def print_page(results):
   global campaignlist
   global servername
+  global footertext
   print """
 <html>
 <head>
@@ -66,10 +78,11 @@ def print_page(results):
     print_form()
 
   print """
+  %s
   </center>
 </body>
 </html>
-"""
+""" % footertext
   
 #@+node:peckj.20130627092551.2222: *3* print_form
 def print_form():
