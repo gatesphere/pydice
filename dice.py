@@ -32,6 +32,9 @@ emailinfo = {
   'server': 'smtp.gmail.com',
   'port': 587
 }
+
+## server name
+servername = "PBEM Dice Server"
 #@-<< declarations >>
 
 #@+others
@@ -43,10 +46,11 @@ def print_header():
 #@+node:peckj.20130627092551.2217: *3* print_page
 def print_page(results):
   global campaignlist
+  global servername
   print """
 <html>
 <head>
-  <title>Dice!</title>
+  <title>%s</title>
   <script language="javascript">
     function populate(text) {
       document.getElementById('rolltype').value = text;
@@ -55,8 +59,8 @@ def print_page(results):
 </head>
 <body>
   <center>
-    <h1>Dice</h1>
-"""
+    <h1>%s</h1>
+""" % (servername, servername)
   print_message(results)
   if not results['success']:
     print_form()
@@ -177,6 +181,7 @@ def grab_request_info():
 #@+node:peckj.20130627092551.2216: *3* run_request
 def run_request(req_info):
   global passcode
+  global servername
   results = {'success': True}
   
   ## validate info - if any field is blank, error out
@@ -203,7 +208,7 @@ def run_request(req_info):
     subject = "[***DICE SERVER***] %s: Roll from %s (%s)" % (c, req_info['playername'], req_info['comment'])
     email = campaignlist[c]
     message = "Hello list.  Incoming die roll...\n\n\n" + message
-    message += "\n\nDice Server signing off."
+    message += "\n\n%s signing off." % servername
     send_email(email, subject, message)
     
   else: # incorrect passcode
