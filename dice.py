@@ -55,6 +55,9 @@ def print_page(results):
   </script>
 </head>
 <body>
+  <script>
+  alert('boo!');
+  </script>
   <center>
     <h1>Dice</h1>
 """
