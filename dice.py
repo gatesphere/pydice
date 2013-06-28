@@ -168,16 +168,15 @@ def run_request(req_info):
   if results['success'] and req_info['passcode'] == passcode:
     ## roll dice
     dice = parse_dicestring(req_info['rolltype'])
-    message = "<pre>Roll requested by: %s\n" % req_info['playername']
+    message = "Roll requested by: %s\n" % req_info['playername']
     message += "For campaign: %s\n" % req_info['campaign']
     message += "Roll comment: %s\n" % req_info['comment']
     message += "Roll timestamp: %s\n" % time.strftime("%Y-%m-%d %H:%M:%S (EST)")
     message += "Results for roll %s:\n%s\n(total %s)" % (req_info['rolltype'], dice[0], sum(dice[0]))
     if dice[1]:
       message += " Essence die: %s" % dice[1]
-    message += "</pre>"
     results['success'] = True
-    results['message'] = message
+    results['message'] = "<pre>" + message + "</pre>"
     ## send email
     c = req_info['campaign']
     subject = "[***DICE SERVER***] %s: Roll from %s (%s)" % (c, req_info['playername'], req_info['comment'])
