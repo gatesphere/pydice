@@ -43,7 +43,7 @@ footertext = """
 list or GM the results will be emailed to.  Please only roll once - there is a record of your
 roll.</p>
 <h3>Do NOT refresh after you recieve your results.  That will resubmit your roll.  Instead,
-please return to the <a href="/">PBEM Dice Server home page</a>.</h3>
+please return to the <a href="dice.py">PBEM Dice Server home page</a>.</h3>
 <p><a href="http://pbemwiki.suspended-chord.info/">PBEM Wiki</a>
 """
 #@-<< declarations >>
