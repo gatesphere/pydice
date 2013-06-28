@@ -48,9 +48,7 @@ def print_page(results):
 <head>
   <title>Dice!</title>
   <script language="javascript/text">
-    function populate(text) {
-      document.getElementById('rolltype').value = text;
-    }
+    function populate(text) {document.getElementById('rolltype').value = text;}
   </script>
 </head>
 <body>
