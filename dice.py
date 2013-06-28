@@ -127,13 +127,23 @@ def print_message(results):
 #@+node:peckj.20130627092551.2223: ** dice
 #@+node:peckj.20130627092551.2224: *3* parse_dicestring
 def parse_dicestring(diestring):
+  print "<pre>"
+  print "entering parse_dicestring"
+  print "  diestring = [%s]" % diestring
   values = []
   fudgedice = [-1, 0, 1]
   essence = False
-  diestring2 = diestring.replace("-", " -")
+  print "  beginning manipulations..."
+  diestring2 = diestring.lower()
+  print "    diestring2 = [%s]" % diestring2
+  diestring2 = diestring2.replace("-", " -")
+  print "    diestring2 = [%s]" % diestring2
   diestring2 = diestring2.replace("+", " ")
-  dice = diestring2.lower().split()
+  print "    diestring2 = [%s]" % diestring2
+  dice = diestring2.split()
+  print "  dice = %s" % dice
   for die in dice:
+    print "  parsing die: [%s]" % die
     if die.find('d') != -1:
       num = die[0:die.index('d')]
       try:
